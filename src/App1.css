@@ -1,0 +1,563 @@
+/* Base body and general styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Changed font to 'Roboto' */
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .App {
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Header styles */
+  .header {
+    position: sticky;
+    top: 0;
+    background-color: #003366;
+    padding: 0.5rem 2rem; /* Increased horizontal padding for more space */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0; /* Remove extra space between navbar and top */
+    width: 100%; /* Make navbar stretch the entire width */
+  }
+  
+  /* Logo and Site Name */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem; /* Added margin-right for space between logo and nav */
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 1rem; /* Adjusted margin for spacing between logo and text */
+  }
+  
+  .site-name {
+    font-size: 1.4rem; /* Increased font size */
+    font-weight: bold; /* Adjusted font weight */
+    white-space: nowrap;
+    color: white;
+  }
+  
+  /* Navigation styles */
+  .navbar-nav {
+    display: flex;
+    justify-content: center; /* Center all nav items */
+    width: 100%;
+    gap: 1rem; /* Added gap between nav items */
+  }
+  
+  .navbar-nav .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; /* Adjusted font weight for nav items */
+    padding: 0.6rem 1.4rem; /* Adjusted padding for more spacing */
+    border-radius: 6px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: #00509e;
+    color: #ffffff;
+  }
+  
+  .navbar-nav .nav-link.active {
+    background-color: #61dafb;
+    color: #003366;
+  }
+  
+  /* Registration button styles */
+  .registration-btn {
+    background-color: #61dafb;
+    color: #003366;
+    border: none;
+    font-size: 1.1rem; /* Adjusted font size */
+    font-weight: bold;
+    border-radius: 6px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    padding: 0.8rem 2rem; /* Added padding for a larger button */
+  }
+  
+  .registration-btn:hover {
+    background-color: #00509e;
+    color: white;
+  }
+  
+  /* Mobile View Styles */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      width: 100%;
+      text-align: center;
+      gap: 1.2rem; /* Increased gap between items in mobile view */
+    }
+  
+    .registration-btn {
+      width: 100%;
+      margin-top: 10px;
+      padding: 1rem 2rem; /* Increased padding for better touch targets */
+    }
+  
+    .logo {
+      height: 30px;
+    }
+  
+    .site-name {
+      font-size: 1.2rem; /* Adjusted site name font size for mobile */
+    }
+  }
+  
+
+  /* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Full height for desktop */
+    background-color: #011222;
+    color: white;
+    text-align: left;
+    padding: 0rem;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row; /* Side-by-side layout for desktop */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+  }
+  
+  .home {
+    flex: 1;
+  }
+  
+  .home h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  
+  .home p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .homep p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+  
+  /* Image Section */
+  .new {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container {
+    max-width: 400px;
+  }
+  
+  .new-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-section {
+        padding-top: 3rem;
+      height: auto;
+    }
+  
+    .container {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  
+    .home h1 {
+      font-size: 2.5rem;
+    }
+  
+    .home p {
+      font-size: 1.2rem;
+    }
+  
+    .homep p {
+      font-size: 1rem;
+    }
+  
+    .new-image {
+      max-width: 300px;
+    }
+  }
+
+  /* Gallery Section Styles */
+.gallery-section {
+    padding: 4rem 0; 
+    background-color: #f9f9f9; 
+  }
+  
+  .gallery-container h2 {
+    font-size: 2.5rem; 
+    font-weight: bold;
+    margin-bottom: 1.5rem; 
+    color: #333;
+  }
+
+  /* Organizer Section Styles */
+.organize-container {
+    padding: 4rem 2rem; /* Add padding for spacing */
+    background-color: #f4f4f4; /* Light background for better contrast */
+    text-align: center; /* Center-align all content */
+  }
+  
+  .organize h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem; /* Add space below heading */
+  }
+  
+  .datee {
+    margin-bottom: 1rem;
+  }
+  
+  .date {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .date i {
+    color: #007bff; /* Icon color */
+    /* margin-right: 0.5rem; */
+  }
+  
+  .divider {
+    margin: 2rem auto; /* Center and space out */
+    width: 50%;
+    border: 1px solid #ccc;
+  }
+  
+  .organizer-divide {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .organizer-departments-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .institution-org, .university-name {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  .association {
+    font-size: 1.3rem;
+    color: #555;
+    margin: 2rem 0 1rem;
+    font-style: italic;
+  }
+  
+  .logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem; /* Space between logos */
+    margin-top: 1.5rem;
+  }
+  
+  .logo-item {
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s;
+  }
+  
+  .logo-item:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .organize h1 {
+      font-size: 2rem;
+    }
+  
+    .date {
+      font-size: 1rem;
+    }
+  
+    .organizer-departments-title {
+      font-size: 1.3rem;
+    }
+  
+    .institution-org, .university-name {
+      font-size: 1rem;
+    }
+  
+    .logos {
+      gap: 0.5rem;
+    }
+  
+    .logo-item {
+      width: 60px;
+    }
+  }
+  
+  
+
+ /* Container holding all the boxes */
+.box-container {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds spacing between boxes */
+    justify-content: center;
+    width: 100%; /* Ensures container takes up full width */
+  }
+  
+  /* General box styling */
+  .box {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: justify;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    min-width: 250px; /* Ensures boxes have a minimum width */
+    width: 100%; /* Default width for mobile */
+    border-radius: 15px; /* Rounded corners */
+    margin: 10px; /* Adds margin around each box */
+  }
+  
+  /* Blue heading style */
+  .heading {
+    text-align: center;
+    color: #06649f;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+  }
+
+  .heading1 {
+    width: 100%;
+    text-align: center;
+    color: #06649f;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+  }
+  
+  /* Content inside the boxes */
+  .content {
+    color: #333; /* Normal text color */
+    font-size: 15px;
+    font-weight: 300;
+    text-align: justify;
+  }
+  
+  /* Mobile view: One box per row */
+  @media (max-width: 767px) {
+    .box {
+      width: 100%; /* Full width for each box on mobile */
+    }
+  }
+  
+  /* Desktop view: First box takes full width, remaining boxes are split into pairs */
+  @media (min-width: 768px) {
+    .box:nth-child(1) {
+      width: 90%; /* First box takes full width */
+    }
+  
+    .box:nth-child(2), .box:nth-child(3) {
+      width: calc(45% - 20px); /* Boxes 2 and 3 are 50% width each */
+    }
+    .box:nth-child(4), .box:nth-child(5) {
+      width: calc(45% - 20px); /* Boxes 4 and 5 are 50% width each */
+    }
+    .box:nth-child(6), .box:nth-child(7){
+        max-width: calc(45% - 20px); /* Boxes 4 and 5 are 50% width each */
+      }
+    .box:nth-child(8){
+        margin-left: 10px;
+        margin-right: 10px;
+        max-width: 40%; /* Boxes 4 and 5 are 50% width each */
+    }
+    
+  }
+  
+  /* Image and Caption Styling */
+  .image-caption {
+    display: flex;
+    flex-direction: column; /* Makes the image and caption stack vertically */
+    align-items: center; /* Centers the image and caption */
+    margin-bottom: 10px; /* Adds space between image/caption and content */
+  }
+  
+  .image {
+    width: 150px; /* Set the image size */
+    height: auto;
+    margin-bottom: 5px; /* Adds space between image and caption */
+  }
+  
+  .caption {
+    font-weight: bold;
+    color: #06649f;
+    text-align: center; /* Centers the caption text */
+  }
+  
+  /* Content on the right of the image */
+  .text-content {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .text-content1 {
+    font-size: 14px;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Box content in Desktop View */
+  .box-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Box content in Mobile View */
+  @media (max-width: 767px) {
+    .box-content {
+      display: block; /* Stack content vertically in mobile view */
+    }
+  
+    .image-caption {
+      margin-bottom: 10px; /* Space between image/caption and content */
+    }
+  }
+  
+  /* Contact Section Styling */
+.contact-section {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .contact-section h2 {
+    font-size: 36px;
+    text-align: center;
+    color: #06649f;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  /* Map Container Styling */
+  .map-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    height: max-content;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  /* Contact Info Styling */
+  .contact-info-container {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .contact-info {
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  
+  .contact-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #06649f;
+  }
+  
+  .contact-info p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .contact-info .fa {
+    margin-right: 10px;
+    color: #06649f;
+  }
+  
+  /* Social Links */
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    font-size: 24px;
+    color: #06649f;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #004c80;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+    }
+  
+    .map-container,
+    .contact-info-container {
+      max-width: 100%;
+    }
+  }
+  

@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import './App1.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav, Button, Container, Collapse } from 'react-bootstrap';
 import image1 from './assets/image1.jpg';
 import image2 from './assets/image2.jpg';
 import image3 from './assets/image3.jpg';
@@ -48,8 +51,10 @@ import speg from './assets/image6.jpeg'
 
 
 function App() {
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("Home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const handleNavClick = (section: string) => {
     setActiveSection(section);
   };
@@ -175,7 +180,7 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
-      let foundSection = "home";
+      let foundSection = "Home";
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
@@ -196,62 +201,78 @@ function App() {
 
       {/* Header Section */}
       <header className="header">
-        <div className="logo-container">
-          <img src={logo2} alt="Logo" className="logo" />
-          <span className="site-name">SPE - INDHAN 2K24</span>
-        </div>
-        <nav className="nav">
-          <ul>
-            {["home", "dept", "about", "events", "gallery", "dates", "sponsorship", "team", "contact"].map((section) => (
-              <li key={section}>
-                <a
-                  href={`#${section}`}
-                  className={activeSection === section ? "active" : ""}
+      <Navbar expand="xxl" sticky="top" variant="dark" className="w-100">
+        <div className="container-fluid"> {/* Use container-fluid to ensure full width */}
+          {/* Logo and Site Name */}
+          <Navbar.Brand href="#Home" className="logo-container">
+            <img src={logo2} alt="Logo" className="logo" />
+            <span className="site-name">SPE - INDHAN 2K24</span>
+          </Navbar.Brand>
+
+          {/* Hamburger Menu and Collapsible Navbar */}
+          <Navbar.Toggle aria-controls="navbar-nav" onClick={toggleMenu} />
+
+          <Collapse in={isMenuOpen}>
+            <Navbar.Collapse id="navbar-nav">
+              <Nav className="ml-auto">
+                {/* Navigation Links - Centered */}
+                <Nav className="mx-auto">
+                  {["Home", "Dept", "Organizer", "About", "Events", "Gallery", "Abstract", "Dates", "Sponsorship", "Team", "Contact"].map((section) => (
+                    <Nav.Link
+                      href={`#${section}`}
+                      key={section}
+                      className={activeSection === section ? 'active' : ''}
+                      onClick={() => handleNavClick(section)}
+                    >
+                      {section.charAt(0).toUpperCase() + section.slice(1)}
+                    </Nav.Link>
+                  ))}
+                </Nav>
+                {/* Registration Button - Right aligned */}
+                <Button
+                  variant="primary"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeQdGHxMjkwDB-E-eNFNlUjBr9XmuLW7x4j-JqB5bZAP5dnww/viewform"
+                  className="registration-btn"
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="registration-container">
-          <button
-            className="registration-btn"
-            onClick={() => window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSeQdGHxMjkwDB-E-eNFNlUjBr9XmuLW7x4j-JqB5bZAP5dnww/viewform'}
-          >
-            Registration
-          </button>
+                  Registration
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
+          </Collapse>
         </div>
-      </header>
+      </Navbar>
+    </header>
+
 
       <main className="main">
 
-        {/* Home Section */}
-        <section id="home" className="hero-section dark-background">
-          <div className="container">
-            <div className="row gy-4">
-              <div
-                className="home"
-                data-aos="zoom-out"
-              >
-                <h1>SPE - INDHAN 2024</h1>
-                <p>Energy is our Vision Energy is our Action</p>
-                <div className='homep'>
-                  <p>December 28, 2024 to December 29, 2024</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="new">
-            <div className="image-container">
-              <img src={logo2} className="new-image" alt="New Image" />
-            </div>
-          </div>
-        </section>
+       {/* Home Section */}
+<section id="Home" className="hero-section dark-background">
+  <div className="container">
+    <div className="row w-100">
+      {/* Text Section */}
+      <div className="home" data-aos="zoom-out">
+        <h1>SPE - INDHAN 2024</h1>
+        <p>Energy is our Vision. Energy is our Action</p>
+        <div className="homep">
+          <p>December 28, 2024 to December 29, 2024</p>
+        </div>
+      </div>
+      {/* Image Section */}
+      <div className="new">
+        <div className="image-container">
+          <img src={logo2} className="new-image" alt="New Image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
         {/* Dept Section */}
-        <section id="dept" className="gallery-section">
+        <section id="Dept" className="gallery-section">
           <div className="gallery-container">
             <h2>Department</h2>
             <div className="gallery-content">
@@ -271,12 +292,13 @@ function App() {
         </section>
 
         {/* Organizer Container */}
+        <section id="Organizer">
         <div className="organize-container">
           <div className="organize" data-aos="zoom-out">
             <h1>SPE - INDHAN 2K24</h1>
             <div className='datee'>
               <p className="date">
-                <i className="bi bi-calendar3"></i>{' '}
+                {/* <i className="bi bi-calendar3"></i>{' '} */}
                 <span className="date-text"><b>December 28, 2024 to December 29, 2024</b></span>
               </p>
             </div>
@@ -311,15 +333,14 @@ function App() {
             </div>
           </div>
         </div>
-
+        </section>
 
         {/* About Section */}
-        <section id="about" className="about_section">
-
-          <div className="about_spe_indhan">
-            <div className='about_spe_indhan_content'>
-              <h2>About SPE-INDHAN</h2>
-              <p>SPE Indhan 2024 proudly presents it’s 8th edition of this prestigious national-
+        <section id="About" className="box-container">
+        
+  <div className="box">
+    <h3 className="heading">About SPE-INDHAN</h3>
+    <p>SPE Indhan 2024 proudly presents it’s 8th edition of this prestigious national-
                 level technical fest, designed to bring together the brightest minds in Chemical
                 and Petroleum Engineering.The fest offers a platform for students to showcase
                 their technical skills, enhance their practical knowledge, and engage in real-
@@ -332,13 +353,10 @@ function App() {
                 Whether you are an aspiring engineer, a student looking to enhance your
                 technical expertise, or someone passionate about sustainability and innovation in
                 the energy domain, SPE Indhan 2024 is the place to be.</p>
-            </div>
-          </div>
-
-          <div className="about_pair">
-            <div className='about_jntuk'>
-              <h2>About JNTUK</h2>
-              <p>Jawaharlal Nehru Technological University Kakinada (JNTUK), established in 1946 stands as one of India’s premier institutions for technical education.
+  </div>
+  <div className="box">
+    <h3 className="heading">About JNTUK</h3>
+    <p className="content">Jawaharlal Nehru Technological University Kakinada (JNTUK), established in 1946 stands as one of India’s premier institutions for technical education.
                 Located in the historic city of Kakinada, Andhra Pradesh, JNTUK has evolved
                 into a center of academic excellence and research. The university is
                 renowned for offering a wide range of undergraduate, postgraduate and
@@ -349,12 +367,11 @@ function App() {
                 research, the university continues to produce highly skilled professionals who
                 contribute to national and global advancements. JNTUK's lush green campus,
                 modern laboratories and strong industry-academia partnerships provide
-                students with a holistic environment for academic and personal growth.
-              </p>
-            </div>
-            <div className='about_ucek'>
-              <h2>About UCEK(A)</h2>
-              <p>University College of Engineering Kakinada (Autonomous), a
+                students with a holistic environment for academic and personal growth.</p>
+  </div>
+  <div className="box">
+    <h3 className="heading">About UCEK(A)</h3>
+    <p className="content">University College of Engineering Kakinada (Autonomous), a
                 constituent college of Jawaharlal Nehru Technological University
                 Kakinada (JNTUK), is a prestigious institution with a legacy dating
                 back to 1946. Located in the coastal city of Kakinada, Andhra
@@ -365,12 +382,10 @@ function App() {
                 Petroleum Engineering, Chemical Engineering, Civil, Mechanical,
                 Electrical and Computer Science. The college is equipped with state-ofthe-art laboratories, modern infrastructure, and a vibrant campus that
                 fosters innovation and practical learning.</p>
-            </div>
-          </div>
-          <div className="about_pair">
-            <div className='about_chemical'>
-              <h2>About Department of Chemical Engineering</h2>
-              <p>The Department of Chemical Engineering offers a four-year B.Tech. degree program, focused on
+  </div>
+  <div className="box">
+    <h3 className="heading">About Department of Chemical Engineering</h3>
+    <p className="content">The Department of Chemical Engineering offers a four-year B.Tech. degree program, focused on
                 both fundamental and advanced principles of chemical engineering, equipping students to excel
                 in a wide range of industries, including the energy, petrochemicals, chemical processes, Bulk
                 drugs & pharmaceuticals, food processing, metallurgy, and environmental management etc. The
@@ -382,10 +397,10 @@ function App() {
                 research, the department explores areas such as Process Design, Reaction Engineering, Modeling
                 and Simulation, Biochemical Engineering, Process Safety and Waste Management, addressing
                 real-world industrial challenges and contributing to impactful solutions.</p>
-            </div>
-            <div className='about_petroleum'>
-              <h2>About Department of Petroleum Engineering</h2>
-              <p>The Department of Petroleum Engineering offers a four-year B.Tech. degree program,
+  </div>
+  <div className="box">
+    <h3 className="heading">About Department of Petroleum Engineering</h3>
+    <p className="content">The Department of Petroleum Engineering offers a four-year B.Tech. degree program,
                 focused on upstream petroleum engineering. The curriculum covers vital areas such as
                 Exploration, Well Logging, Drilling, Reservoir Engineering, Oil and Gas Production,
                 Enhanced Oil Recovery Techniques (EORT), Natural Gas Hydrates, Coalbed Methane,
@@ -396,23 +411,18 @@ function App() {
                 that graduates are well-prepared to meet the dynamic challenges of the global energy
                 sector. This holistic approach provides students with the skills and knowledge
                 necessary to excel in a rapidly evolving industry.</p>
-            </div>
-          </div>
-          <div className="about_pair1">
-            <h2>From Convener’s Desk</h2>
-            <div className="from_desk">
-              <div className="content_pair">
-                <div className="image_container">
-                  <img
-                    src={kishore}
-                    alt="Chemical Engineering"
-                    className="about_image"
-                  />
-                  <span className="image_name">Dr. T. Lakshmana Kishore</span>
-                </div>
-                <div className="text_content">
-                  <p>
-                    It is with great pride and enthusiasm that I welcome you to
+  </div>
+
+
+  <h2 className="heading1">From Convener’s Desk</h2>
+  <div className="box">
+    <div className="box-content">
+      <div className="image-caption">
+        <img src={kishore} alt="Image 1" className="image" />
+        <p className="caption">Dr. T. Lakshmana Kishore</p>
+      </div>
+      <div className="text-content1">
+        <p>It is with great pride and enthusiasm that I welcome you to
                     SPE INDHAN: A National Tech Fest and Energy Symposium.
                     This remarkable event, offers an exciting platform for students
                     to explore and engage with the forefront of energy and
@@ -424,24 +434,19 @@ function App() {
                     contribute to the evolving energy landscape. I extend my
                     warm invitation to all students, faculty and industry
                     professionals to be a part of this unique fest. Together, let us
-                    drive forward the spirit of innovation and collaboration.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="from_desk">
-              <div className="content_pair">
-                <div className="image_container">
-                  <img
-                    src={krishna}
-                    alt="Petroleum Engineering"
-                    className="about_image"
-                  />
-                  <span className="image_name">Dr. K. Krishna Bhaskar</span>
-                </div>
-                <div className="text_content">
-                  <p>
-                    It gives me immense pleasure to welcome you all to SPE
+                    drive forward the spirit of innovation and collaboration.</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="box">
+    <div className="box-content">
+      <div className="image-caption">
+        <img src={krishna} alt="Image 2" className="image" />
+        <p className="caption">Dr. K. Krishna Bhaskar</p>
+      </div>
+      <div className="text-content1">
+        <p>It gives me immense pleasure to welcome you all to SPE
                     INDHAN: A National Tech Fest and Energy Symposium, an
                     event that stands as a testament to the passion and
                     dedication of our student community. SPE INDHAN will
@@ -454,25 +459,19 @@ function App() {
                     invite students, professionals and faculty members from
                     various institutions to join us in making this event a grand
                     success. Let us unite in our shared vision of a sustainable
-                    energy future.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="from_desk">
-              <h2>From Faculty Advisor's Desk</h2>
-              <div className="content_pair">
-                <div className="image_container">
-                  <img
-                    src={kvrao}
-                    alt="Petroleum Engineering"
-                    className="about_image"
-                  />
-                  <span className="image_name">Prof. K.V. Rao</span>
-                </div>
-                <div className="text_content">
-                  <p>
-                    Dear Students, Professionals and Enthusiasts,
+                    energy future..</p>
+      </div>
+    </div>
+  </div>
+  <h2 className="heading1">From Faculty Advisor's Desk</h2>
+  <div className="box w-75">
+    <div className="box-content">
+      <div className="image-caption">
+        <img src={kvrao} alt="Image 3" className="image" />
+        <p className="caption">Prof. K.V. Rao</p>
+      </div>
+      <div className="text-content1">
+        <p>Dear Students, Professionals and Enthusiasts,
                     It is with immense pride and enthusiasm that I welcome you
                     to SPE INDHAN: A National Tech Fest and Energy
                     Symposium. SPE INDHAN serves as a platform to bridge the
@@ -485,80 +484,78 @@ function App() {
                     this opportunity, network with like-minded individuals and
                     immerse themselves in the rich learning experience this event
                     offers. Let us come together to inspire, innovate and ignite
-                    the energy sector's future.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+                    the energy sector's future.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Events Section */}
-        <h2>Events</h2>
-        <section id="events" className="events-section">
-          <div className='eventn'>
-            <div className="event-list">
-              <div className="event">
-                <h3>GEO LOGX</h3>
-                <p>Get ready to drill into the world of well logging and formation evaluation! Geologx presents a challenging competition for students to showcase your skills in interpreting geological data. Will your team strike oil and emerge victorious?</p>
-              </div>
 
-              <div className="event">
-                <h3>BRAIN STORM</h3>
-                <p>Get ready to put your knowledge to the test! Brain Storm, the ultimate quiz competition, challenges you to tackle general and technical rounds. Will you emerge as the champion and claim the title of ultimate quiz whiz?</p>
-              </div>
+<section id="Events" className="events-section">
+<h2 className="heading1 pt-5 pb-5">Events</h2>
+  <div className='eventn'>
+    <div className="event-list">
+      <div className="event">
+        <h3>GEO LOGX</h3>
+        <p>Get ready to drill into the world of well logging and formation evaluation! Geologx presents a challenging competition for students to showcase your skills in interpreting geological data. Will your team strike oil and emerge victorious?</p>
+      </div>
 
-              <div className="event">
-                <h3>LITHOLAB</h3>
-                <p>Uncover the secrets of the earth! Litholab is a hands-on challenge where you'll identify and analyze rocks and their properties. Can you crack the code and become a rockstar?</p>
-              </div>
+      <div className="event">
+        <h3>BRAIN STORM</h3>
+        <p>Get ready to put your knowledge to the test! Brain Storm, the ultimate quiz competition, challenges you to tackle general and technical rounds. Will you emerge as the champion and claim the title of ultimate quiz whiz?</p>
+      </div>
 
-              <div className="event">
-                <h3>MODEL MANIA</h3>
-                <p>Model Mania is the ultimate platform for innovators to bring their ideas to life. Whether you're a tech enthusiast, a budding engineer, or a creative thinker, this is your chance to showcase your working models and projects. Let your imagination run wild, push the boundaries of technology, and get ready to inspire and amaze with your ingenuity!</p>
-              </div>
+      <div className="event">
+        <h3>LITHOLAB</h3>
+        <p>Uncover the secrets of the earth! Litholab is a hands-on challenge where you'll identify and analyze rocks and their properties. Can you crack the code and become a rockstar?</p>
+      </div>
 
-              <div className="event">
-                <h3>LAYERS & DROPLETS</h3>
-                <p>Mix, match, and measure your way to victory! Layers & Droplets is a thrilling competition that puts your chemical engineering skills to the test with density and titration challenges. Can you accurately mix and measure to emerge as the champion?</p>
-              </div>
+      <div className="event">
+        <h3>MODEL MANIA</h3>
+        <p>Model Mania is the ultimate platform for innovators to bring their ideas to life. Whether you're a tech enthusiast, a budding engineer, or a creative thinker, this is your chance to showcase your working models and projects. Let your imagination run wild, push the boundaries of technology, and get ready to inspire and amaze with your ingenuity!</p>
+      </div>
 
-              <div className="event">
-                <h3>PROCESS PATHWAY</h3>
-                <p>Piece together the puzzle of process perfection! Process Pathway challenges deals with arrangement of process flow diagram in the correct order. Can you optimize the flow and emerge victorious?</p>
-              </div>
+      <div className="event">
+        <h3>LAYERS & DROPLETS</h3>
+        <p>Mix, match, and measure your way to victory! Layers & Droplets is a thrilling competition that puts your chemical engineering skills to the test with density and titration challenges. Can you accurately mix and measure to emerge as the champion?</p>
+      </div>
 
-              <div className="event">
-                <h3>POSTER PIONEERS</h3>
-                <p>Unleash your creativity and showcase your research! Poster Pioneers invites students to present innovative ideas and solutions on petroleum engineering, chemical engineering, and the latest energy trends. Share your vision and compete for top honors! The list of topics are given in the last flap.</p>
-              </div>
+      <div className="event">
+        <h3>PROCESS PATHWAY</h3>
+        <p>Piece together the puzzle of process perfection! Process Pathway challenges deals with arrangement of process flow diagram in the correct order. Can you optimize the flow and emerge victorious?</p>
+      </div>
 
-              <div className="event">
-                <h3>CULTURAL CRESCENDO</h3>
-                <p>Immerse yourself in a vibrant tapestry of music, dance and art! Cultural Crescendo is a celebration of diversity and creativity. Join us for an unforgettable evening of entertainment and cultural exchange!</p>
-              </div>
+      <div className="event">
+        <h3>POSTER PIONEERS</h3>
+        <p>Unleash your creativity and showcase your research! Poster Pioneers invites students to present innovative ideas and solutions on petroleum engineering, chemical engineering, and the latest energy trends. Share your vision and compete for top honors! The list of topics are given in the last flap.</p>
+      </div>
 
-              <div className="event">
-                <h3>POWERPOINT PRODIGY</h3>
-                <p>Transform your ideas into engaging presentations! PowerPoint Prodigy is a platform for students to showcase their knowledge and creativity on petroleum engineering, chemical engineering, and energy trends. Can you captivate the audience and emerge as the prodigy? The list of topics are given in the next flap.</p>
-              </div>
+      <div className="event">
+        <h3>CULTURAL CRESCENDO</h3>
+        <p>Immerse yourself in a vibrant tapestry of music, dance and art! Cultural Crescendo is a celebration of diversity and creativity. Join us for an unforgettable evening of entertainment and cultural exchange!</p>
+      </div>
 
-              <div className="event">
-                <h3>WORKSHOPS</h3>
-                <p>Unlock the secrets of the oil and gas industry with our expert-led workshops. Renowned speakers across the country will share their insights and expertise, providing a unique learning experience. Gain valuable knowledge and networking opportunities to kick-start your career in the energy sector.</p>
-                <ul>
-                  <li>Oil and Gas Pipelines</li>
-                  <li>Deep Water Field Development</li>
-                  <li>Design and Operation of Compact Heat Exchangers</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+      <div className="event">
+        <h3>POWERPOINT PRODIGY</h3>
+        <p>Transform your ideas into engaging presentations! PowerPoint Prodigy is a platform for students to showcase their knowledge and creativity on petroleum engineering, chemical engineering, and energy trends. Can you captivate the audience and emerge as the prodigy? The list of topics are given in the next flap.</p>
+      </div>
+
+      <div className="event">
+        <h3>WORKSHOPS</h3>
+        <p>Unlock the secrets of the oil and gas industry with our expert-led workshops. Renowned speakers across the country will share their insights and expertise, providing a unique learning experience. Gain valuable knowledge and networking opportunities to kick-start your career in the energy sector.</p>
+        <ul>
+          <li>Oil and Gas Pipelines</li>
+          <li>Deep Water Field Development</li>
+          <li>Design and Operation of Compact Heat Exchangers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* gallery Section */}
-        <section id="gallery" className="gallery-section1">
+        <section id="Gallery" className="gallery-section1">
           <div className="gallery-container1">
             <h2>Poster Gallery</h2>
             <div className="gallery-content1">
@@ -579,17 +576,20 @@ function App() {
 
 
         {/* Abstract Section */}
-        <section id="abstract" className="abstract-section">
+        <section id="Abstract" className="abstract-section">
           {/* <h2>Abstract</h2> */}
           <div className="abstract-card">
             <div className="important-notes-container">
               <div className="important-notes-card">
-                <h3 className='Inote'>Important Notes</h3>
-                <p>
+                <h3 className='Inote pt-5 pb-5'>Important Notes</h3>
+                
+                <ul>
+                  <li>
+                    <p>
                   Please read the below instructions carefully before making
                   payment and registration.
                 </p>
-                <ul>
+                  </li>
                   <li>
                     Candidates are advised to pay first and then go through the
                     registration process.
@@ -670,7 +670,7 @@ function App() {
 
 
         {/* Dates Section */}
-        <section id="dates" className="imp_section">
+        <section id="Dates" className="imp_section">
           <h2 className="section-heading">Important Dates</h2>
           <div className="content-wrapper">
             <div className="dates-container">
@@ -692,7 +692,7 @@ function App() {
 
 
         {/* Sponsor Section */}
-        <section id="sponsorship" className="section sponsorship-section">
+        <section id="Sponsorship" className="section sponsorship-section">
           <h2>Our Partners</h2>
           <div className="sponsorship-card">
             <div className="sponsorship-logos">
@@ -733,7 +733,7 @@ function App() {
 
 
         {/* Team Section */}
-        <section id="team" className="team-section">
+        <section id="Team" className="team-section">
           <h2 className="team-title">OUR TEAM</h2>
           <div className="team-container">
             {teamMembers.map((member, index) => (
@@ -751,53 +751,51 @@ function App() {
 
 
         {/* Map Section */}
-        <section id="contact" className="section contact-section">
-          <h2>Contact</h2>
-          <div className="contact-container">
-            {/* Map Section */}
-            <div className="map-container">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3815.901275072345!2d82.24241339999999!3d16.9794058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3828422f4f62b5%3A0x285fe5176446d9aa!2sDepartment%20Of%20Petroleum%20And%20Petrochemical%20Engineering%20PARKING!5e0!3m2!1sen!2sin!4v1733857061659!5m2!1sen!2sin"
-                width="600"
-                height="450"
-                loading="lazy"
-              ></iframe>
-            </div>
+<section id="Contact" className="section contact-section">
+  <h2>Contact</h2>
+  <div className="contact-container">
+    {/* Map Section */}
+    <div className="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3815.901275072345!2d82.24241339999999!3d16.9794058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3828422f4f62b5%3A0x285fe5176446d9aa!2sDepartment%20Of%20Petroleum%20And%20Petrochemical%20Engineering%20PARKING!5e0!3m2!1sen!2sin!4v1733857061659!5m2!1sen!2sin"
+        loading="lazy"
+      ></iframe>
+    </div>
 
-            {/* Contact Details Section */}
-            <div className="contact-info-container">
-              <div className="contact-info">
-                <h3>Department of Petroleum Engineering and Department of Chemical Engineering</h3>
-                <p>
-                  <i className="fa fa-map-marker"></i> University College of Engineering(A), Kakinada, Andhra Pradesh - 533003
-                </p>
-              </div>
+    {/* Contact Details Section */}
+    <div className="contact-info-container">
+      <div className="contact-info">
+        <h3>Department of Petroleum Engineering and Department of Chemical Engineering</h3>
+        <p>
+          <i className="fa fa-map-marker"></i> University College of Engineering(A), Kakinada, Andhra Pradesh - 533003
+        </p>
+      </div>
 
-              <div className="contact-info">
-                <h3>Contact Us</h3>
-                <div className="social-links">
-                  <div className="email">
-                    <p>
-                      <i className="fa fa-envelope fa-lg" style={{ color: 'black' }}></i>
-                      <a href="mailto:speindhan2k24@gmail.com">speindhan2k24@gmail.com</a>
-                    </p>
-                  </div>
-                  <div className="social-icons">
-                    <a href="https://www.instagram.com/speindhan2k24/profilecard/?igsh=MWNsbG9odGR0aWZlZg==" target="_blank" rel="noopener noreferrer">
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                    <a href="https://x.com/speindhan?t=fdJqpBuiidgdf6DGdMjWjQ&s=09" target="_blank" rel="noopener noreferrer">
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                    <a href="https://whatsapp.com/channel/0029VauyiNy3WHTNpcPvGB2x" target="_blank" rel="noopener noreferrer">
-                      <i className="fa fa-whatsapp"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="contact-info">
+        {/* <h3>Contact Us</h3> */}
+        <div className="social-links">
+          <div className="email">
+            <p>
+              <i className="fa fa-envelope fa-lg"></i>
+              <a href="mailto:speindhan2k24@gmail.com">speindhan2k24@gmail.com</a>
+            </p>
           </div>
-        </section>
+          <div className="social-icons">
+            <a href="https://www.instagram.com/speindhan2k24/profilecard/?igsh=MWNsbG9odGR0aWZlZg==" target="_blank" rel="noopener noreferrer">
+              <i className="fa fa-instagram"></i>
+            </a>
+            <a href="https://x.com/speindhan?t=fdJqpBuiidgdf6DGdMjWjQ&s=09" target="_blank" rel="noopener noreferrer">
+              <i className="fa fa-twitter"></i>
+            </a>
+            <a href="https://whatsapp.com/channel/0029VauyiNy3WHTNpcPvGB2x" target="_blank" rel="noopener noreferrer">
+              <i className="fa fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
       </main>

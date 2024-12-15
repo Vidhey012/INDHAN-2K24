@@ -11,7 +11,7 @@ html {
 
 .App {
   text-align: center;
-  width: 100%;
+  width: 99%;
 }
 
 /* Header styles */
@@ -186,8 +186,9 @@ html {
 
 
 .container {
-  width: 60%;
-  margin-top: 7%;
+  width: 100%;
+  margin-top: 0;
+  text-align: center;
 }
 
 .new {
@@ -200,7 +201,10 @@ html {
 }
 
 .datee p {
-  margin-left: 40%;
+  /* margin-left: 40%; */
+  display: flex;
+  align-items: center;  
+  justify-content: center;
 }
 
 .date {
@@ -666,6 +670,7 @@ html {
 .contact-info-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .social-links {
@@ -977,12 +982,15 @@ h1 {
     max-width: 100px;
   }
 }
-
+section {
+  clear: both; /* Prevent section merging */
+}
 /* General Styles */
 .events-section {
   background: linear-gradient(270deg, #f9f9f9, #faf9f9);
   text-align: justify;
-  padding-bottom: 10%;
+  padding-bottom: 80px;
+  position: relative;
   /* Optional: Add some padding at the bottom */
 }
 
@@ -1042,7 +1050,8 @@ ul {
 
 @media (max-width: 768px) {
   .events-section {
-    padding: 15px;
+    padding: 15px;    
+  padding-bottom: 80px;
   }
 
   h2 {
@@ -1073,7 +1082,7 @@ ul {
 
 .abstract-section p {
   font-size: 1rem;
-  color: #fff;
+  color: red;
   /* White text color for better contrast */
   text-align: center;
 }
@@ -1278,6 +1287,8 @@ ul {
   padding: 1rem;
   text-align: center;
   background-color: #f9f9f9;
+  position: relative;
+  margin-top: 40px;
 }
 
 .gallery-container1 {
