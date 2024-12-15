@@ -1,0 +1,1586 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+/* Header styles */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #003366;
+  padding: 1rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.site-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-left: 0.3rem;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.1rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #00509e;
+  color: #ffffff;
+}
+
+.nav a.active {
+  background-color: #61dafb;
+  color: #003366;
+}
+
+.registration-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  margin-left: 10rem;
+}
+
+.registration-btn {
+  background-color: #61dafb;
+  color: #003366;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.registration-btn:hover {
+  background-color: #00509e;
+  color: white;
+}
+
+/* Main content */
+.main {
+  padding: 0rem;
+}
+
+.section {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: white;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  /* box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    /* Makes child elements take full width */
+  }
+
+  .logo-container {
+    justify-content: center;
+    /* Centers the logo on smaller screens */
+    margin-bottom: 1rem;
+  }
+
+  .nav {
+    margin: 1rem 0;
+    justify-content: center;
+    /* Keeps navigation centered on smaller screens */
+  }
+
+  .nav ul {
+    flex-direction: column;
+    /* Stacks navigation links vertically */
+    align-items: center;
+  }
+
+  .registration-container {
+    align-self: flex-end;
+    margin-left: 0;
+    /* Removes left margin for small screens */
+    margin-top: 1rem;
+    /* Adds margin to the top */
+  }
+
+  .registration-btn {
+    align-self: flex-end;
+  }
+
+  .section {
+    padding: 1rem;
+    /* Reduces padding for smaller screens */
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  /* background: linear-gradient(150deg, #000000, #021a31); */
+  background-color: #011222;
+  /* Gradient from black to dark gray */
+  color: white;
+  padding: 2rem;
+  display: flex;
+}
+
+
+.container {
+  width: 60%;
+  margin-top: 7%;
+}
+
+.new {
+  width: 30%;
+}
+
+.new,
+.new-image {
+  width: 35%;
+}
+
+.datee p {
+  margin-left: 40%;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.date-text {
+  font-size: 16px;
+}
+
+.divider {
+  border-top: 2px solid #fff;
+  margin: 20px auto;
+  width: 100%;
+  /* Adjust the width as needed */
+}
+
+.organizer {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+  color: #61f75f;
+  /* Add some spacing above the text */
+}
+
+.department {
+  font-size: 18px;
+  color: #f8e044;
+}
+
+.institution {
+  font-size: 18px;
+}
+
+.jntuk-logo {
+  width: 80px;
+  display: block;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.col-md-10 {
+  flex: 1;
+}
+
+.col-md-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.section {
+  margin: 30px 0;
+}
+
+.home h1 {
+  font-size: 60px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.home p {
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.homep p {
+  font-size: 22px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  text-align: center;
+  color: whitesmoke;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1rem;
+  }
+
+  .date-text {
+    font-size: 14px;
+  }
+
+  .department,
+  .institution {
+    font-size: 16px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .col-md-10,
+  .col-md-2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .jntuk-logo {
+    width: 60px;
+  }
+
+  .section h2 {
+    font-size: 20px;
+  }
+
+  .section p {
+    font-size: 14px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .hero-section {
+    padding: 3rem;
+  }
+
+  .date-text {
+    font-size: 18px;
+  }
+
+  .department,
+  .institution {
+    font-size: 20px;
+  }
+
+  .row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .col-md-10 {
+    flex: 1;
+  }
+
+  .col-md-2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .jntuk-logo {
+    width: 90px;
+  }
+
+  .section h2 {
+    font-size: 28px;
+  }
+
+  .section p {
+    font-size: 18px;
+  }
+}
+
+/* Flexbox styling for .new */
+.new {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* New image styling */
+.new-image {
+  width: 70%;
+  height: auto;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+
+  /* On small screens, adjust the image size */
+  .new-image {
+    width: 60px;
+  }
+
+  /* Adjust padding for smaller devices */
+  .new {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  /* On very small screens, adjust the image size even more */
+  .new-image {
+    width: 50px;
+  }
+
+  /* Adjust padding and margin for small devices */
+  .new {
+    padding: 3px;
+    margin-top: 10px;
+  }
+}
+
+.gallery-section {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.gallery-container {
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.gallery-container h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.gallery-content {
+  position: relative;
+}
+
+.gallery-image {
+  width: 100%;
+  max-height: 0%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+.about_section {
+  display: flex;
+  margin: 1rem;
+  padding: 2rem;
+  width: 100%;
+  flex-direction: column;
+}
+
+.about_spe_indhan {
+  width: 90%;
+  text-align: justify;
+}
+
+.about_spe_indhan_content h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.about_spe_indhan_content p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.about_pair {
+  display: flex;
+  gap: 1rem;
+  /* Space between columns within the row */
+}
+
+.about_jntuk {
+  width: 45%;
+  text-align: justify;
+
+}
+
+.about_jntuk h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.about_jntuk p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+
+.about_ucek {
+  width: 45%;
+  margin-left: 3rem;
+  text-align: justify;
+}
+
+.about_ucek h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.about_ucek p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.about_chemical {
+  width: 45%;
+  text-align: justify;
+
+}
+
+.about_chemical h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.about_chemical p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+
+.about_petroleum {
+  width: 45%;
+  margin-left: 3rem;
+  text-align: justify;
+}
+
+.about_petroleum h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.about_petroleum p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.about_pair1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.from_desk {
+  width: 90%;
+
+}
+
+.about_pair1 h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.content_pair {
+  display: flex;
+  width: 90%;
+}
+
+.image_container {
+  flex: 1;
+  text-align: center;
+}
+
+.about_image {
+  width: 70%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.image_name {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.text_content {
+  flex: 2.3;
+}
+
+.text_content h2 {
+  margin-top: 0;
+}
+
+.text_content p {
+  text-align: justify;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 2.5rem;
+}
+
+.section h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  gap: 1rem;
+
+}
+
+.contact-section {
+  background-color: #f9f9f9;
+}
+
+.contact-container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.map-container {
+  max-width: 600px;
+  display: flex;
+}
+
+.contact-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: -1rem;
+}
+
+.social-links .email i {
+  font-size: 20px;
+  /* You can adjust this value as needed */
+}
+
+.contact-info h3 {
+  text-align: justify;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.contact-info p {
+  text-align: justify;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+
+.email,
+.social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  font-size: 10px;
+}
+
+.fa-map-marker,
+.fa-envelope {
+  margin-right: 10px;
+}
+
+.social-icons i {
+  color: #000;
+  font-size: 25px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .logo {
+    height: 35px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .registration-container {
+    margin-left: 0;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .hero-section {
+    padding: 1.5rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .about_section {
+    padding: 1.5rem;
+  }
+
+  .about_pair {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about_jntuk,
+  .about_ucek,
+  .about_chemical {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .gallery-section {
+    padding: 1rem;
+  }
+
+  .gallery-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .gallery-image {
+    max-height: 40%;
+  }
+
+  .arrow {
+    padding: 0.4rem 0.8rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about_section {
+    padding: 1rem;
+  }
+
+  .about_jntuk h2,
+  .about_ucek h2,
+  .about_chemical h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-image {
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 0.5rem;
+  }
+
+  .logo {
+    height: 30px;
+  }
+
+  .nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero-section {
+    padding: 1rem;
+  }
+
+  .about_section {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .gallery-image {
+    width: 100%;
+    max-height: 30%;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* General styles for the container */
+.organize-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0px;
+}
+
+/* Styles for the main content */
+.organize {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1px;
+  color: #06649f;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.divider {
+  margin: 10px 0;
+}
+
+.organizer-divide em {
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.organizer-departments {
+  flex: 1;
+  margin: 1px;
+  padding: 0px;
+}
+
+.organizer-departments-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #06649f;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.institution-org,
+.university-name {
+  font-size: 1.2rem;
+  margin-top: 0px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.association {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.logos {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.logo-item {
+  max-width: 9%;
+  height: auto;
+  margin: 10px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .date {
+    font-size: 1rem;
+  }
+
+  .organizer-departments-title {
+    font-size: 1.2rem;
+  }
+
+  .institution-org,
+  .university-name {
+    font-size: 1rem;
+  }
+
+  .logos {
+    flex-direction: column;
+  }
+
+  .logo-item {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .date {
+    font-size: 0.9rem;
+  }
+
+  .organizer-departments-title {
+    font-size: 1rem;
+  }
+
+  .institution-org,
+  .university-name {
+    font-size: 0.9rem;
+  }
+
+  .logos {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .logo-item {
+    max-width: 100px;
+  }
+}
+
+/* General Styles */
+.events-section {
+  background: linear-gradient(270deg, #f9f9f9, #faf9f9);
+  text-align: justify;
+  padding-bottom: 10%;
+  /* Optional: Add some padding at the bottom */
+}
+
+h2 {
+  text-align: center;
+  color: #04578b;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.events-section h2 {
+  text-align: center;
+  color: #04578b;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.event-list {
+  width: 80%;
+  display: grid;
+  margin-left: 10%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3%;
+}
+
+.event h3 {
+  font-size: 1.5rem;
+  color: #04578b;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.event p {
+  font-size: 1rem;
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+ul {
+  list-style-type: disc;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+
+}
+
+.event ul {
+  margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .event-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .events-section {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .event h3 {
+    font-size: 1.2rem;
+  }
+
+  .event p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Abstract Section Styles */
+.abstract-section {
+  width: 100%;
+}
+
+.abstract-section h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.abstract-section p {
+  font-size: 1rem;
+  color: #fff;
+  /* White text color for better contrast */
+  text-align: center;
+}
+
+/* Abstract Section */
+.abstract-section {
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+/* .abstract-section h2 {
+  font-size: 2rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+} */
+
+/* Card Style */
+.abstract-card {
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Important Notes Section */
+.important-notes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.important-notes-card {
+  background-color: #f9f9f9;
+  padding: 1%;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  text-align: left;
+}
+
+.important-notes-card h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-top: -2%;
+}
+
+.important-notes-card p {
+  font-size: 1rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: justify;
+  margin-top: -5%;
+}
+
+.important-notes-card ul {
+  list-style-type: disc;
+}
+
+.important-notes-card ul li {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .important-notes-card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .important-notes-card {
+    width: 100%;
+  }
+}
+
+/* Registration Button */
+.abs-registration-btn {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.abs-registration-btn .btn {
+  display: block;
+  padding: 10px 20px;
+  background-color: #45c6f5;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.abs-registration-btn .btn:hover {
+  background-color: #04578b;
+}
+
+/* Bank Details Table */
+
+.Inote {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  color: #06649f;
+}
+
+.bDetails {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  color: #06649f;
+}
+
+.bank-details h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  color: #06649f;
+}
+
+.bank-details table {
+  width: 60%;
+  margin-top: 20px;
+  border-collapse: separate;
+  text-align: left;
+  margin-left: 20%;
+}
+
+.bank-details table,
+.bank-details th,
+.bank-details td {
+  border: 2px solid #ddd;
+}
+
+.bank-details th,
+.bank-details td {
+  padding: 10px;
+}
+
+.bank-details th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.bank-details td {
+  background-color: #fafafa;
+}
+
+@media (max-width: 1024px) {
+  .abstract-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .abstract-card {
+    padding: 15px;
+  }
+
+  .bank-details table {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .abstract-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .abstract-card {
+    padding: 10px;
+  }
+
+  .bank-details table {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .abstract-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .abstract-card {
+    padding: 10px;
+  }
+
+  .bank-details table {
+    font-size: 0.7rem;
+  }
+}
+
+.gallery-section1 {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.gallery-container1 {
+  max-width: 80%;
+  /* Reduce the container size to ensure it fits smaller screens */
+  margin: 0 auto;
+  position: relative;
+}
+
+.gallery-container1 h2 {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.gallery-content1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-image1 {
+  width: auto;
+  /* Allow the width to adjust automatically based on height */
+  height: 500px;
+  /* Set a fixed height for the image */
+  object-fit: contain;
+  /* Ensure the image fits within the bounds without distortion */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust arrows for better alignment */
+.arrow1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.left-arrow1 {
+  left: 10px;
+}
+
+.right-arrow1 {
+  right: 10px;
+}
+
+.arrow1:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .gallery-container1 {
+    max-width: 95%;
+    /* Adjust container for smaller screens */
+  }
+
+  .gallery-image1 {
+    height: 300px;
+    /* Reduce height for smaller devices */
+  }
+
+  .arrow1 {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* General Section Styling */
+.imp_section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.section-heading {
+  text-align: center;
+  color: #06649f;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+/* Dates Container Styling */
+.dates-container {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.date-item {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.date-item .icon {
+  font-size: 30px;
+  margin-right: 15px;
+  color: #007BFF;
+}
+
+.date-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for date and reason container */
+.date-reason {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  /* Space between date and reason */
+}
+
+.date {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+.reason {
+  font-size: 18px;
+  color: #1b1a1a;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 20px;
+    width: 100px;
+  }
+
+  .dates-container {
+    align-items: center;
+  }
+}
+
+.sponsorship-section {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.sponsorship-card {
+  width: 60%;
+  /* Limit card width */
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.sponsorship-logos {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow logos to wrap to the next row */
+  justify-content: center;
+  /* Center the logos */
+  gap: 1rem;
+  /* Space between logos */
+}
+
+.sponsorship-logos img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.sponsorship-logos img:hover {
+  transform: scale(1.1);
+  /* Slight zoom effect on hover */
+}
+
+.logo-with-text {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+}
+
+.logo-image {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 0.5;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sponsorship-card {
+    width: 90%;
+    /* Adjust card width for smaller screens */
+  }
+
+  .sponsorship-logos {
+    gap: 0.5rem;
+    /* Reduce gap for smaller screens */
+  }
+
+  .logo-text {
+    font-size: 12px;
+    /* Adjust text size for smaller screens */
+  }
+}
+
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Ensure cards align properly */
+  gap: 20px;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  width: 48%;
+  /* Two cards per row with a small gap */
+  box-sizing: border-box;
+  /* Ensures padding doesn't break layout */
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+}
+
+.team-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.team-info {
+  text-align: left;
+}
+
+.team-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.team-designation,
+.team-mobile {
+  font-size: 1rem;
+  color: #101010;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-card {
+    width: 48%;
+    /* Two cards per row for medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .team-card {
+    width: 100%;
+    /* Full width for small screens */
+  }
+}
